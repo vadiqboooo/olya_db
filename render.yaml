@@ -10,4 +10,4 @@ services:
       - key: DATABASE_URL
         value: sqlite:///./training.db
 
-    runtime: python-3.11
+    runtime: python-3.13.7
