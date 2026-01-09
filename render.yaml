@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: training-db-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: |
+      python -c "from database.initialize_db import init_db; init_db()"
+      uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./training.db
